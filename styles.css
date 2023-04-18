@@ -1,5 +1,6 @@
 html {
-    background: #4FC8B1
+    background: #4FC8B1;
+    font-family: 'Bebas Neue', sans-serif
 }
 
 /* //////HEADER + MAIN DISPLAY//////// */
@@ -45,6 +46,8 @@ h2{
     color:#4FC8B1;
     text-align: center;
     border: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
 }
 
 .level-button:hover {
