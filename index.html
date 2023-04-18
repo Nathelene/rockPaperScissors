@@ -3,25 +3,33 @@
     <head>
         <link rel="stylesheet" href="./styles.css">
         <!-- link to css and font -->
+      
     </head>
     <body>
-        <section class="game">
-            <h1>Rock, Paper, Scissors</h1>
-                <img>
-            <!-- main game -->
+         <h1>Rock, Paper, Scissors</h1>
+            <section class="game">
+                <h2>Choose Your Game!</h2>
+                <div class="button">
+                    <button class="level-button" id="classic">
+                        <p><strong>CLASSIC</strong></p>
+                        <p>rock > scissors paper > rock scissors > paper</p>
+                    </button>
+                    <button class="level-button" id="Difficult">
+                        <p><strong>DIFFICULT</strong></p>
+                        <p>rock ></p>
+                    </button>
+                </div>
         </section>
-        <section class="score-board">
-            <!-- human score board -->
+     <section class="score-board">
             <div id="human-score">
-                <h2>Human</h2>
+                <h3>Human</h3>
                 <p>Wins:0</p>
-            </div>
+            </div> 
             <div id="computer-score">
-                <h3>Computer</h3>
+                <h4>Computer</h4>
                 <p>Wins:0</p>
-            <!-- computer score board -->
             </div>
-        </section>
+        </section> 
         <script src="./src/main.js"></script>
     </body>
 </html>
