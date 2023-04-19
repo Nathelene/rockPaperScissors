@@ -294,3 +294,4 @@ function lossDifficult(event) {
     <p>Wins:${computer.wins}`;
   setTimeout(displayDifficultGame, 5000);
 };
+    
