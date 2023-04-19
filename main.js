@@ -45,10 +45,12 @@ function displayClassicGame(){
  };
 
  /////This function will display the results after the computer has picked a random fighter and add a point to the wins
+ 
  function displayGameResults(event){
     computerReturnsFighter(classicFighters)
     ////////computer loses and human gets a point
     console.log(computerResult)
+    console.log(event.target.id)
     if(event.target.id === rockImage.id && computerResult === 2){
     }else if(event.target.id === paperImage.id && computerResult === 1){
     }else if(event.target.id === scissorsImage.id && computerResult === 0){
@@ -59,17 +61,20 @@ function displayClassicGame(){
         humanScore.innerHTML = `<p>Wins:${human.wins}`
     };
     /////////Human loses and computer gets a point
-    if(event.target.id === "rock" && computerResult === 0){
-    } else if(event.target.id === paperImage.id && computerResult === 2){
-    }else if(event.target.id === scissorsImage.id && computerResult === 1){
+    if(event.target.id === rockImage.id && computerResult === 1){
+    } else if(event.target.id === paperImage.id && computerResult === 0){
+    }else if(event.target.id === scissorsImage.id && computerResult === 2){
+        gameOptionHomePage.innerHTML =
+        `<h2>IT'S A TIE!</h2>`
+        allImages.classList.add('hidden')
+    }else{
         gameOptionHomePage.innerHTML =
         `<h2>YOU LOSE!</h2>`
         allImages.classList.add('hidden')
         computer.wins += 1
         computerScore.innerHTML = `<p>Wins:${computer.wins}`
-    };
-    
-}
+    }
+};
 
 
 
