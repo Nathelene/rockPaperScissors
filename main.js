@@ -1,5 +1,21 @@
 //////////VARIABLES//////////////////////
-var classicFighters = ['src/happy-paper.png','src/happy-rocks.png','src/happy-scissors.png'];
+var classicFighters = [
+    {   class: 'fighter-image',
+        id:'paper',
+        src:'file:///Users/nataliebaker/rockPaperScissors/src/happy-paper.png',
+    },
+    {
+        class:'fighter-image',
+        id:'rock',
+        src:'file:///Users/nataliebaker/rockPaperScissors/src/happy-rocks.png'
+    },
+    {   
+        class:'fighter-image',
+        id:'scissors',
+        src:'file:///Users/nataliebaker/rockPaperScissors/src/happy-scissors.png'
+    }];
+
+
 var rockImage = document.querySelector('#rock');
 var paperImage = document.querySelector('#paper');
 var scissorsImage = document.querySelector('#scissors');
@@ -61,18 +77,38 @@ function displayClassicGame(){
  function determiningWin(event){
     computerReturnsFighter(classicFighters)
     ////////computer loses and human gets a point
+    console.log(classicFighters[computerResult].src)
     console.log(classicFighters[computerResult].id)
     console.log(event.target.src)
 
-    
     if(event.target.id === rockImage.id && computerResult === 2){
+        gameOptionHomePage.innerHTML = 
+        `<h2>YOU WIN!</h2> 
+        <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
+        `
+        allImages.classList.add('hidden')
+        human.wins += 1
+        humanScore.innerHTML = `
+        <h3>HUMAN 😎</h3>
+        <p>Wins:${human.wins}`
+
     }else if(event.target.id === paperImage.id && computerResult === 1){
+        gameOptionHomePage.innerHTML = 
+        `<h2>YOU WIN!</h2> 
+        <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
+        `
+        allImages.classList.add('hidden')
+        human.wins += 1
+        humanScore.innerHTML = `
+        <h3>HUMAN 😎</h3>
+        <p>Wins:${human.wins}`
     }else if(event.target.id === scissorsImage.id && computerResult === 0){
         gameOptionHomePage.innerHTML = 
         `<h2>YOU WIN!</h2> 
         <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
-        <img class="fighter-image" id="${classicFighters[computerResult]}
-      
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
         `
         allImages.classList.add('hidden')
         human.wins += 1
@@ -80,31 +116,70 @@ function displayClassicGame(){
         <h3>HUMAN 😎</h3>
         <p>Wins:${human.wins}`
     }   
+    setTimeout(displayClassicGame,10000)
 };
 
     /////////Human loses and computer gets a point
 function determiningTie(event){
     computerReturnsFighter(classicFighters)
     if(event.target.id === rockImage.id && computerResult === 1){
+        gameOptionHomePage.innerHTML =
+        `<h2>IT'S A TIE!</h2>
+        <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
+        `
+        allImages.classList.add('hidden')
     } else if(event.target.id === paperImage.id && computerResult === 0){
+        gameOptionHomePage.innerHTML =
+        `<h2>IT'S A TIE!</h2>
+        <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
+        `
+        allImages.classList.add('hidden')
     }else if(event.target.id === scissorsImage.id && computerResult === 2){
         gameOptionHomePage.innerHTML =
         `<h2>IT'S A TIE!</h2>
         <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
         `
         allImages.classList.add('hidden')
     }
+    setTimeout(displayClassicGame,10000)
 };
 
 function determiningLoss(event){
     computerReturnsFighter(classicFighters)
     if(event.target.id === rockImage.id && computerResult === 1){
+         
+        gameOptionHomePage.innerHTML =
+        `<h2>YOU LOSE!</h2>
+        <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
+        `
+        allImages.classList.add('hidden')
+        computer.wins += 1
+        computerScore.innerHTML = `
+        <h4>COMPUTER 💻</h4>
+        <p>Wins:${computer.wins}`
     }else if(event.target.id === paperImage.id && computerResult === 2){
+         
+        gameOptionHomePage.innerHTML =
+        `<h2>YOU LOSE!</h2>
+        <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
+        `
+        allImages.classList.add('hidden')
+        computer.wins += 1
+        computerScore.innerHTML = `
+        <h4>COMPUTER 💻</h4>
+        <p>Wins:${computer.wins}`
+        
     }else if(event.target.id === scissorsImage.id && computerResult === 0){
     
         gameOptionHomePage.innerHTML =
         `<h2>YOU LOSE!</h2>
         <img class="fighter-image" id="${event.target.id}" src="${event.target.src}" >
+        <img id="${classicFighters[computerResult].id} src="${classicFighters[computerResult].src}">
         `
         allImages.classList.add('hidden')
         computer.wins += 1
@@ -112,6 +187,7 @@ function determiningLoss(event){
         <h4>COMPUTER 💻</h4>
         <p>Wins:${computer.wins}`
     }
+    setTimeout(displayClassicGame,1000)
 };
 
 
