@@ -1,43 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css">
-    </head>
-    <body>
-         <h1>Rock, Paper, Scissors</h1>
-            <section class="game">
-                <h2>Choose Your Game!</h2>
-                <div class="game-option-button">
-                    <button class="level-button" id="classic">
-                        <p>-CLASSIC-</p>
-                        <p>rock > scissors 
-                           paper > rock 
-                           scissors > paper</p>
-                    </button>
-                    <button class="level-button" id="difficult">
-                        <p>-DIFFICULT-</p>
-                        <p>rock ></p>
-                    </button>
-                </div>
-        </section>
-        <section class="choose-fighter-image hidden">
-            <div class="choose-fighter">
-                <img class="fighter-image" id="rock" src="src/happy-rocks.png" alt="Three happy rocks">
-                <img class="fighter-image" id="paper" src="src/happy-paper.png" alt="Happy paper">
-                <img class="fighter-image" id="scissors" src="src/happy-scissors.png" alt="Happy Scissors">
-            </div>
-        </section>
-        <section class="score-board">
-            <div id="human-score">
-                <h3>Human 😎</h3>
-                <p>Wins:0</p>
-            </div> 
-            <div id="computer-score">
-                <h4>Computer 💻</h4>
-                <p>Wins:0</p>
-            </div>
-        </section> 
-        <script src="main.js"></script>
-    </body>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <section id="human-score">
+      <h3>Human 😎</h3>
+      <p>Wins:0</p>
+      <button class="change-game hidden" id="change-game-button">Change Game</button>
+    </section>
+    <h1>Rock, Paper, Scissors</h1>
+    <main class="game">
+      <h2>Choose Your Game!</h2>
+      <div class="game-option-button">
+        <button class="level-button" id="classic">
+          <p>-CLASSIC-</p>
+          <p>rock > scissors<br/>paper > rock<br/>scissors > paper</p>
+        </button>
+        <button class="level-button" id="difficult">
+          <p>-DIFFICULT-</p>
+          <p>rock > Scissors & iguana paper > rock & alien<br/>iguana > paper & alien<br/>alien > scissors & rock</p>
+        </button>
+      </div>
+    </main>
+    <section class="choose-fighter-image">
+      <div class="choose-fighter">
+        <img
+          class="fighter-image hidden"
+          id="rock"
+          src="src/happy-rocks.png"
+          alt="Three happy rocks"
+        />
+        <img
+          class="fighter-image hidden"
+          id="paper"
+          src="src/happy-paper.png"
+          alt="Happy paper"
+        />
+        <img
+          class="fighter-image hidden"
+          id="scissors"
+          src="src/happy-scissors.png"
+          alt="Happy Scissors"
+        />
+        <img
+          class="fighter-image hidden"
+          id="rock2"
+          src="src/happy-rocks.png"
+          alt="Three happy rocks"
+        />
+        <img
+          class="fighter-image hidden"
+          id="paper2"
+          src="src/happy-paper.png"
+          alt="Happy paper"
+        />
+        <img
+          class="fighter-image hidden"
+          id="scissors2"
+          src="src/happy-scissors.png"
+          alt="Happy Scissors"
+        />
+        <img
+          class="fighter-image hidden"
+          id="alien"
+          src="src/happy-alien.png"
+          alt="Happy Alien"
+        />
+        <img
+          class="fighter-image hidden"
+          id="iguana"
+          src="src/iguana.png"
+          alt="Happy Alien"
+        />
+      </div>
+    </section>
+    <section id="computer-score">
+      <h4>Computer 💻</h4>
+      <p>Wins:0</p>
+    </section>
+    <script src="main.js"></script>
+  </body>
 </html>
