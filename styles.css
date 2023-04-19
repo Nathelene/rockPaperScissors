@@ -103,6 +103,9 @@ text-align:center
 .hidden {
     display: none
 }
+.change-game-button hidden {
+    display: none
+}
 
 
 
