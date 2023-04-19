@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+         <h1>Rock, Paper, Scissors</h1>
+            <section class="game">
+                <h2>Choose Your Game!</h2>
+                <div class="game-option-button">
+                    <button class="level-button" id="classic">
+                        <p>-CLASSIC-</p>
+                        <p>rock > scissors 
+                           paper > rock 
+                           scissors > paper</p>
+                    </button>
+                    <button class="level-button" id="difficult">
+                        <p>-DIFFICULT-</p>
+                        <p>rock ></p>
+                    </button>
+                </div>
+        </section>
+        <section class="choose-fighter-image hidden">
+            <div class="choose-fighter">
+                <img class="fighter-image" id="rock" src="src/happy-rocks.png" alt="Three happy rocks">
+                <img class="fighter-image" id="paper" src="src/happy-paper.png" alt="Happy paper">
+                <img class="fighter-image" id="scissors" src="src/happy-scissors.png" alt="Happy Scissors">
+            </div>
+        </section>
+        <section class="score-board">
+            <div id="human-score">
+                <h3>Human 😎</h3>
+                <p>Wins:0</p>
+            </div> 
+            <div id="computer-score">
+                <h4>Computer 💻</h4>
+                <p>Wins:0</p>
+            </div>
+        </section> 
+        <script src="main.js"></script>
+    </body>
+</html>
