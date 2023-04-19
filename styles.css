@@ -20,6 +20,7 @@ h2{
     padding-bottom:50px;
     color:#C9FBC2;
 }
+
 .game {
     display: flex;
     flex-direction: column;  
@@ -29,7 +30,7 @@ h2{
 }
 
 /* //////////////////LEVEL BUTTONS////////////// */
-.button {
+.game-option-button {
     display: flex;
     flex-direction: column;  
     align-items: center;
@@ -89,8 +90,19 @@ h3 {
 h4 {
     font-size: 20px 
 }
+/* /////////IMAGES///////// */
+.fighter-image {
+    height:170px;
 
+}
+.choose-fighter{
+margin:auto;
+text-align:center
+}
 
+.hidden {
+    display: none
+}
 
 
 
