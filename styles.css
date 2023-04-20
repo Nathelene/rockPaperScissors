@@ -3,22 +3,27 @@ html {
     font-family: 'Bebas Neue', sans-serif
 }
 
+/* * {
+    border: 2px solid red
+} */
+
 /* //////HEADER + MAIN DISPLAY//////// */
+body {
+    display: flex;
+    
+}
+
 h1 {
+    font-size: 20px;
+}
+
+h2{
     margin: auto;
     font-size: 60px;
     text-align: center;
     padding-top: 20px;
     color:#C9FBC2;
-}
-
-h2{
-    margin: auto;
-    font-size: 20px;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom:50px;
-    color:#C9FBC2;
+    
 }
 
 .game {
@@ -27,6 +32,7 @@ h2{
     align-items: center;
     justify-content: center;
     gap: 20px;
+    width:100%
 }
 
 /* //////////////////LEVEL BUTTONS////////////// */
@@ -84,7 +90,14 @@ h2{
 }
 
 h3 {
+    margin: auto;
     font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:50px;
+    color:#C9FBC2;
+    margin: auto;
+
 }
 
 h4 {
@@ -94,18 +107,20 @@ h4 {
 .fighter-image {
     height:170px;
 
-}
-.choose-fighter{
-margin:auto;
+} 
+
+.choose-fighter-image{
+display: flex;
+justify-content: center;
+flex-direction:row;
 text-align:center
-}
+} 
+
+/* .change-game-button hidden {
+    display: none
+} */
 
 .hidden {
     display: none
 }
-.change-game-button hidden {
-    display: none
-}
-
-
 
