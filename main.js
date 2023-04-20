@@ -133,6 +133,7 @@ function winClassic(event) {
   
     showFightersPage.innerHTML = `<h3>YOU WIN!</h3> 
       <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
+      <img class="fight-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>
  
       `;
     rockImage.classList.add("hidden");
@@ -155,7 +156,7 @@ function winClassic(event) {
     console.log('here tie')
     showFightersPage.innerHTML = `<h3>IT'S A TIE!</h3>
       <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-      <img class="fight-image" id="${classicFighters[].id}" src="${event.target.src}"/>
+      <img class="fight-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>
       
       `;
     rockImage.classList.add("hidden");
@@ -168,6 +169,7 @@ function winClassic(event) {
     console.log('here loss')
     showFightersPage.innerHTML = `<h3>YOU LOSE!</h3>
       <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
+      <img class="fight-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>
      
       `;
     rockImage.classList.add("hidden");
