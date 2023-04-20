@@ -27,7 +27,7 @@ var showFightersPage = document.querySelector(".show-fighters");
 var humanScore = document.querySelector("#human-score");
 var computerScore = document.querySelector("#computer-score");
 var computerResult;
-var changeGameButton = document.querySelector("change-game-button");
+var changeGameButton = document.querySelector(".change-game-button");
 
 ////Data Model
 
@@ -61,7 +61,8 @@ function displayClassicGame() {
   rockImage.classList.remove("hidden");
   paperImage.classList.remove("hidden");
   scissorsImage.classList.remove("hidden");
-}
+  changeGameButton.classList.remove("hidden")
+};
 
 function displayDifficultGame() {
   showFightersPage.innerHTML = `<h3>Choose Your Fighter!</h3>`;
@@ -70,26 +71,27 @@ function displayDifficultGame() {
   scissorsImage2.classList.remove("hidden");
   alienImage.classList.remove("hidden");
   iguanaImage.classList.remove("hidden");
-}
+  changeGameButton.classList.remove("hidden")
+};
 
 function computerReturnsFighter(array) {
   computerResult = Math.floor(Math.random() * array.length);
 
   return computerResult;
-}
+};
 
 /////This function will display the results after the computer has picked a random fighter and add a point to the wins
 function displayClassicGameResults(event) {
   determiningClassicWin(event);
   determiningClassicTie(event);
   determiningClassicLoss(event);
-}
+};
 
 function displayDifficultGameResults(event) {
   determineDifficultWin(event);
   determineDifficultTie(event);
   determineDifficultLoss(event);
-}
+};
 
 ////////////Classic Game Functions///////////////
 
@@ -105,13 +107,13 @@ function determiningClassicWin(event) {
   } else if ( event.target.id === paperImage.id && classicFighters[computerResult].id === "rock") {
     winClassic(event);
   }
-}
+};
 
 function determiningClassicTie(event) {
   if (event.target.id === classicFighters[computerResult].id) {
     return tieClassic(event);
   }
-}
+};
 
 function determiningClassicLoss(event) {
   if ( event.target.id === rockImage.id && classicFighters[computerResult].id === "paper") {
@@ -156,7 +158,7 @@ function tieClassic(event) {
   paperImage.classList.add("hidden");
   scissorsImage.classList.add("hidden");
   setTimeout(displayClassicGame, 5000);
-}
+};
 
 function lossClassic(event) {
   console.log("here loss classic");
@@ -174,7 +176,7 @@ function lossClassic(event) {
       <h4>COMPUTER 💻</h4>
       <p>Wins:${computer.wins}`;
   setTimeout(displayClassicGame, 5000);
-}
+};
 
 //////////////Difficult Game Functions///////////
 function determineDifficultWin(event) {
@@ -203,13 +205,13 @@ function determineDifficultWin(event) {
     (event.target.id === alienImage.id && difficultFighters[computerResult].id === "rock2")) {
     winDifficult(event);
   }
-}
+};
 
 function determineDifficultTie(event) {
   if (event.target.id === difficultFighters[computerResult].id) {
     tieDifficult(event);
   }
-}
+};
 
 function determineDifficultLoss(event) {
   if ((event.target.id === rockImage2.id && difficultFighters[computerResult].id === "alien") || 
@@ -258,7 +260,7 @@ function winDifficult(event) {
     <h1>HUMAN 😎</h1>
     <p>Wins:${human.wins}`;
 
-  //   setTimeout(displayDifficultGame, 5000);
+    setTimeout(displayDifficultGame, 5000);
 };
 
 function tieDifficult(event) {
@@ -273,7 +275,7 @@ function tieDifficult(event) {
   alienImage.classList.add("hidden");
   iguanaImage.classList.add("hidden");
 
-  //   setTimeout(displayDifficultGame, 5000);
+    setTimeout(displayDifficultGame, 5000);
 };
 
 function lossDifficult(event) {
@@ -298,5 +300,5 @@ function lossDifficult(event) {
     <h4>COMPUTER 💻</h4>
     <p>Wins:${computer.wins}`;
 
-  //   setTimeout(displayDifficultGame, 5000);
+    setTimeout(displayDifficultGame, 5000);
 };
