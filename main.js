@@ -26,9 +26,8 @@ var difficultGameButton = document.querySelector("#difficult");
 var showFightersPage = document.querySelector(".show-fighters");
 var humanScore = document.querySelector("#human-score");
 var computerScore = document.querySelector("#computer-score");
-var computerResult;
 var changeGameButton = document.querySelector(".change-game-button");
-
+var computerResult;
 ////Data Model
 
 var human = {
@@ -44,7 +43,7 @@ var computer = {
 /////////////////EVENT LISTENERS//////////////////////
 classicGameButton.addEventListener("click", displayClassicGame);
 difficultGameButton.addEventListener("click", displayDifficultGame);
-// changeGameButton.addEventListener("click", showHomeView)
+changeGameButton.addEventListener("click", showHomeView)
 
 rockImage.addEventListener("click", displayClassicGameResults);
 paperImage.addEventListener("click", displayClassicGameResults);
@@ -57,31 +56,34 @@ alienImage.addEventListener("click", displayDifficultGameResults);
 iguanaImage.addEventListener("click", displayDifficultGameResults);
 
 /////////////FUNCTIONS//////////////////////////////
+function showHomeView(){
+    window.location.reload()
+};
+
 function showHiddenClass(elements){
-    for ( var i = 0 ; elements.length; i++){
-        elements[i].classList.remove('hidden')
-    }
+  for ( var i = 0; elements.length; i++) {
+        elements[i].classList.remove("hidden")
+  }
 };
 
 function removeHiddenClass(elements){
-    for ( var i = 0 ; elements.length; i++){
-        elements[i].classList.add('hidden')
-    }
+  for ( var i = 0; elements.length; i++) {
+        elements[i].classList.add("hidden")
+  }
 };
 
 function displayClassicGame() {
   showFightersPage.innerHTML = `<h3>Choose Your Fighter!</h3>`;
-  showHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton])
+  showHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton]);
 };
 
 function displayDifficultGame() {
   showFightersPage.innerHTML = `<h3>Choose Your Fighter!</h3>`;
-  showHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton])
+  showHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
 };
 
 function computerReturnsFighter(array) {
   computerResult = Math.floor(Math.random() * array.length);
-
   return computerResult;
 };
 
@@ -118,58 +120,55 @@ function determiningClassicTieOrLoss(event) {
 };
 
 function winClassic(event) {
-
-  showFightersPage.innerHTML = `<h3>YOU WIN!</h3> 
-      <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-      <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
-
+  showFightersPage.innerHTML = 
+    `<h3>YOU WIN!</h3> 
+    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
+    <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
 
   human.win = true;
-  if (human.win = true) {
-    human.wins += 1;
-  }
+    if (human.win = true) {
+      human.wins += 1;
+  };
+
   humanScore.innerHTML = `
-      <h1>HUMAN 😎</h1>
-      <p>Wins:${human.wins}</p>
-      `;
-      setTimeout(displayClassicGame, 2000)
-      removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage])
+    <h1>HUMAN 😎</h1>
+    <p>Wins:${human.wins}</p>`;
+
+  setTimeout(displayClassicGame, 2000)
+  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage]);
 };
 
 function tieClassic(event) {
-
   showFightersPage.innerHTML = `<h3>IT'S A TIE!</h3>
-      <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-      <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
+    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
+    <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
 
   setTimeout(displayClassicGame, 2000);
-  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage])
+  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage]);
 };
 
 function lossClassic(event) {
- 
-  showFightersPage.innerHTML = `<h3>YOU LOSE!</h3>
-      <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-      <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
+  showFightersPage.innerHTML = 
+    `<h3>YOU LOSE!</h3>
+    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
+    <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
 
   computer.win = true;
-  if ((computer.win = true)) {
+  if (computer.win = true) {
     computer.wins += 1;
-  }
+  };
 
   computerScore.innerHTML = `
-      <h4>COMPUTER 💻</h4>
-      <p>Wins:${computer.wins}`;
+    <h4>COMPUTER 💻</h4>
+    <p>Wins:${computer.wins}`;
 
-      setTimeout(displayClassicGame, 2000);
-      removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage])
+  setTimeout(displayClassicGame, 2000);
+  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage]);
 };
 
 //////////////Difficult Game Functions///////////
 function determineDifficultWin(event) {
   computerReturnsFighter(difficultFighters);
-  console.log(event.target.id);
-  console.log(difficultFighters[computerResult].id);
 
   if ((event.target.id === rockImage2.id && difficultFighters[computerResult].id === "scissors2") || 
     (event.target.id === rockImage2.id && difficultFighters[computerResult].id === "iguana")) {
@@ -198,22 +197,22 @@ function determineDifficultTieOrLoss(event) {
 };
 
 function winDifficult(event) {
-
-  showFightersPage.innerHTML = `<h3>YOU WIN!</h3> 
+  showFightersPage.innerHTML = 
+    `<h3>YOU WIN!</h3> 
     <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
     <img class="fighter-image" id="${difficultFighters[computerResult].id}" src="${difficultFighters[computerResult].src}"/>`;
 
   human.win = true;
   if (human.win === true) {
     human.wins += 1;
-  }
+  };
 
   humanScore.innerHTML = `
     <h1>HUMAN 😎</h1>
-    <p>Wins:${human.wins}</p>
-    `;
-    setTimeout(displayDifficultGame, 2000);
-    removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage])
+    <p>Wins:${human.wins}</p>`;
+
+  setTimeout(displayDifficultGame, 2000);
+  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
 };
 
 function tieDifficult(event) {
@@ -222,8 +221,8 @@ function tieDifficult(event) {
     <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
     <img class="fighter-image" id="${difficultFighters[computerResult].id}" src="${difficultFighters[computerResult].src}"/>`;
 
-    setTimeout(displayDifficultGame, 2000);
-    removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage])
+  setTimeout(displayDifficultGame, 2000);
+  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
 };
 
 function lossDifficult(event) {
@@ -235,13 +234,13 @@ function lossDifficult(event) {
   computer.win = true;
   if (computer.win === true) {
     computer.wins += 1;
-  }
+  };
 
   computerScore.innerHTML = `
     <h4>COMPUTER 💻</h4>
-    <p>Wins:${computer.wins}
-  `;
+    <p>Wins:${computer.wins}`;
+
   setTimeout(displayDifficultGame, 2000);
-  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage])
+  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
 };
 
