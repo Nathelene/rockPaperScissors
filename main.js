@@ -123,6 +123,7 @@ function winClassic(event) {
       <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
       <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
 
+
   human.win = true;
   if (human.win = true) {
     human.wins += 1;
