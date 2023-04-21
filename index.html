@@ -6,15 +6,22 @@
       rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
+
     <section id="human-score">
-      <h3>Human 😎</h3>
+      <h1>Human 😎</h1>
       <p>Wins:0</p>
-      <button class="change-game hidden" id="change-game-button">Change Game</button>
+      
+        <button class="change-game-button hidden" id="change-game">Change Game</button>
+      
     </section>
-    <h1>Rock, Paper, Scissors</h1>
-    <main class="game">
-      <h2>Choose Your Game!</h2>
+    <!-- <button class="change-game-button hidden" id="change-game">Change Game</button> -->
+    <section class="game">
+      <h2>Rock, Paper, Scissors</h2>
+    <section class="show-fighters">
+        <h3>Choose Your Game!</h3> 
+      
       <div class="game-option-button">
         <button class="level-button" id="classic">
           <p>-CLASSIC-</p>
@@ -25,63 +32,27 @@
           <p>rock > Scissors & iguana paper > rock & alien<br/>iguana > paper & alien<br/>alien > scissors & rock</p>
         </button>
       </div>
-    </main>
-    <section class="choose-fighter-image">
-      <div class="choose-fighter">
-        <img
-          class="fighter-image hidden"
-          id="rock"
-          src="src/happy-rocks.png"
-          alt="Three happy rocks"
-        />
-        <img
-          class="fighter-image hidden"
-          id="paper"
-          src="src/happy-paper.png"
-          alt="Happy paper"
-        />
-        <img
-          class="fighter-image hidden"
-          id="scissors"
-          src="src/happy-scissors.png"
-          alt="Happy Scissors"
-        />
-        <img
-          class="fighter-image hidden"
-          id="rock2"
-          src="src/happy-rocks.png"
-          alt="Three happy rocks"
-        />
-        <img
-          class="fighter-image hidden"
-          id="paper2"
-          src="src/happy-paper.png"
-          alt="Happy paper"
-        />
-        <img
-          class="fighter-image hidden"
-          id="scissors2"
-          src="src/happy-scissors.png"
-          alt="Happy Scissors"
-        />
-        <img
-          class="fighter-image hidden"
-          id="alien"
-          src="src/happy-alien.png"
-          alt="Happy Alien"
-        />
-        <img
-          class="fighter-image hidden"
-          id="iguana"
-          src="src/iguana.png"
-          alt="Happy Alien"
-        />
+    </section>
+
+    <section>
+      <div class="choose-fighter-image">
+        <img class="fighter-image hidden" id="rock" src="src/happy-rocks.png" alt="Three happy rocks">
+        <img class="fighter-image hidden" id="paper" src="src/happy-paper.png" alt="Happy paper">
+        <img class="fighter-image hidden" id="scissors" src="src/happy-scissors.png" alt="Happy Scissors">
+        <img class="fighter-image hidden" id="rock2" src="src/happy-rocks.png" alt="Three happy rocks">
+        <img class="fighter-image hidden" id="paper2" src="src/happy-paper.png" alt="Happy paper">
+        <img class="fighter-image hidden" id="scissors2" src="src/happy-scissors.png" alt="Happy Scissors">
+        <img class="fighter-image hidden" id="alien" src="src/happy-alien.png" alt="Happy Alien">
+        <img class="fighter-image hidden" id="iguana" src="src/iguana.png" alt="Happy Alien">
       </div>
+    </section>
     </section>
     <section id="computer-score">
       <h4>Computer 💻</h4>
       <p>Wins:0</p>
     </section>
+
     <script src="main.js"></script>
   </body>
+
 </html>
