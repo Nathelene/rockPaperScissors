@@ -27,6 +27,7 @@ var showFightersPage = document.querySelector(".show-fighters");
 var humanScore = document.querySelector("#human-score");
 var computerScore = document.querySelector("#computer-score");
 var changeGameButton = document.querySelector(".change-game-button");
+var selectFighter = document.querySelector('.choose-fighter-image')
 var computerResult;
 ////Data Model
 
@@ -41,40 +42,67 @@ var computer = {
 };
 
 /////////////////EVENT LISTENERS//////////////////////
-classicGameButton.addEventListener("click", displayClassicGame);
-difficultGameButton.addEventListener("click", displayDifficultGame);
 changeGameButton.addEventListener("click", showHomeView)
+showFightersPage.addEventListener("click",function(event) {
+    if (event.target.id === "classic") {
+        displayClassicGame()
+    } else {
+        displayDifficultGame()
+    }
+});
 
-rockImage.addEventListener("click", displayClassicGameResults);
-paperImage.addEventListener("click", displayClassicGameResults);
-scissorsImage.addEventListener("click", displayClassicGameResults);
+selectFighter.addEventListener('click', function(event) {
+    if (event.target.className === "fighter-image-classic") {
+        displayClassicGameResults()
+    } else if (event.target.className === "fighter-image-difficult") {
+        displayDifficultGameResults()
+    }
+});
+// rockImage.addEventListener("click", displayClassicGameResults);
+// paperImage.addEventListener("click", displayClassicGameResults);
+// scissorsImage.addEventListener("click", displayClassicGameResults);
 
-rockImage2.addEventListener("click", displayDifficultGameResults);
-paperImage2.addEventListener("click", displayDifficultGameResults);
-scissorsImage2.addEventListener("click", displayDifficultGameResults);
-alienImage.addEventListener("click", displayDifficultGameResults);
-iguanaImage.addEventListener("click", displayDifficultGameResults);
+// rockImage2.addEventListener("click", displayDifficultGameResults);
+// paperImage2.addEventListener("click", displayDifficultGameResults);
+// scissorsImage2.addEventListener("click", displayDifficultGameResults);
+// alienImage.addEventListener("click", displayDifficultGameResults);
+// iguanaImage.addEventListener("click", displayDifficultGameResults);
 
-/////////////FUNCTIONS//////////////////////////////
+
+///////////FUNCTIONS//////////////////////////////
+
 function showHomeView(){
-    window.location.reload()
+    showFightersPage.innerHTML = `<h3>Choose Your Game!</h3> 
+    <div class="game-option-button">
+      <button class="level-button" id="classic">
+        <p>-CLASSIC-</p>
+        <p>rock > scissors<br/>paper > rock<br/>scissors > paper</p>
+      </button>
+      <button class="level-button" id="difficult">
+        <p>-DIFFICULT-</p>
+        <p>rock > scissors & iguana paper > rock & alien<br/>
+          scissors > paper & iguana iguana > paper & alien<br/>alien > scissors & rock</p>
+      </button>
+    </div>`
+    removeHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton,rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
 };
 
 function showHiddenClass(elements){
   for ( var i = 0; elements.length; i++) {
-        elements[i].classList.remove("hidden")
+    elements[i].classList.remove('hidden')
   }
 };
 
 function removeHiddenClass(elements){
   for ( var i = 0; elements.length; i++) {
-        elements[i].classList.add("hidden")
+    elements[i].classList.add('hidden')
   }
 };
 
 function displayClassicGame() {
+
   showFightersPage.innerHTML = `<h3>Choose Your Fighter!</h3>`;
-  showHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton]);
+  showHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton])
 };
 
 function displayDifficultGame() {
@@ -135,7 +163,7 @@ function winClassic(event) {
     <p>Wins:${human.wins}</p>`;
 
   setTimeout(displayClassicGame, 2000)
-  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage]);
+  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage,changeGameButton]);
 };
 
 function tieClassic(event) {
@@ -144,7 +172,7 @@ function tieClassic(event) {
     <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
 
   setTimeout(displayClassicGame, 2000);
-  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage]);
+  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage,changeGameButton]);
 };
 
 function lossClassic(event) {
@@ -163,7 +191,7 @@ function lossClassic(event) {
     <p>Wins:${computer.wins}`;
 
   setTimeout(displayClassicGame, 2000);
-  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage]);
+  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage,changeGameButton]);
 };
 
 //////////////Difficult Game Functions///////////
@@ -212,7 +240,7 @@ function winDifficult(event) {
     <p>Wins:${human.wins}</p>`;
 
   setTimeout(displayDifficultGame, 2000);
-  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
+  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
 };
 
 function tieDifficult(event) {
@@ -222,7 +250,7 @@ function tieDifficult(event) {
     <img class="fighter-image" id="${difficultFighters[computerResult].id}" src="${difficultFighters[computerResult].src}"/>`;
 
   setTimeout(displayDifficultGame, 2000);
-  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
+  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
 };
 
 function lossDifficult(event) {
@@ -241,6 +269,6 @@ function lossDifficult(event) {
     <p>Wins:${computer.wins}`;
 
   setTimeout(displayDifficultGame, 2000);
-  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
+  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
 };
 

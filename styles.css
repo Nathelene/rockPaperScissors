@@ -98,6 +98,8 @@ h3 {
 }
 
 /* /////////IMAGES///////// */
+.fighter-image-classic,
+.fighter-image-difficult,
 .fighter-image {
     height:170px;
 } 
