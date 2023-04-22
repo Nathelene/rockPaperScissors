@@ -34,6 +34,7 @@ var computerResult;
 ////Data Model
 var human = {
   wins: 0,
+  resultMessage:''
 };
 
 var computer = {
@@ -61,33 +62,46 @@ selectFighter.addEventListener("click",function(event) {
 });
 
 ///////////FUNCTIONS//////////////////////////////
+function addWin(){
+    if (human.resultMessage === '🎉 YOU WIN! 🎉'){
+    human.wins += 1;
+    humanScore.innerHTML = `
+      <h1>HUMAN 😎</h1>
+      <p>Wins:${human.wins}</p>`;
+    } else if (human.resultMessage === 'YOU LOSE!'){
+        computer.wins += 1;
+    computerScore.innerHTML = `
+      <h4>COMPUTER 💻</h4>
+      <p>Wins:${computer.wins}`;
+    }
+};
+
+function showHiddenClass(elements){
+    for ( var i = 0; i < elements.length; i++) {
+      elements[i].classList.remove('hidden')
+    }
+  };
+  
+  function removeHiddenClass(elements){
+    for ( var i = 0; i < elements.length; i++) {
+      elements[i].classList.add('hidden')
+    }
+  };
 
 function showHomeView(){
     showFightersPage.innerHTML = `<h3>Choose Your Game!</h3> 
     <div class="game-option-button">
       <button class="level-button-1" id="classic">
         <p>-CLASSIC-</p>
-        <p>rock > scissors<br/>paper > rock<br/>scissors > paper</p>
+        rock > scissors<br/>paper > rock<br/>scissors > paper
       </button>
       <button class="level-button-2" id="difficult">
         <p>-DIFFICULT-</p>
-        <p>rock > scissors & iguana paper > rock & alien<br/>
-          scissors > paper & iguana iguana > paper & alien<br/>alien > scissors & rock</p>
+        rock > scissors & iguana paper > rock & alien<br/> 
+        scissors > paper & iguana iguana > paper & alien<br/>alien > scissors & rock
       </button>
     </div>`
     removeHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton,rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage]);
-};
-
-function showHiddenClass(elements){
-  for ( var i = 0; i < elements.length; i++) {
-    elements[i].classList.remove('hidden')
-  }
-};
-
-function removeHiddenClass(elements){
-  for ( var i = 0; i < elements.length; i++) {
-    elements[i].classList.add('hidden')
-  }
 };
 
 function displayClassicGame() {
@@ -121,64 +135,42 @@ function determiningClassicWin(event) {
 console.log(event.target.id)
 console.log(classicFighters[computerResult].id)
   if ( event.target.id === rockImage.id && classicFighters[computerResult].id === "scissors") {
-    winClassic(event);
+    human.resultMessage = '🎉 YOU WIN! 🎉'
+    gameResultClassic(event)
   } else if ( event.target.id === scissorsImage.id && classicFighters[computerResult].id === "paper") {
-    winClassic(event);
+    human.resultMessage = '🎉 YOU WIN! 🎉'
+    gameResultClassic(event)
   } else if ( event.target.id === paperImage.id && classicFighters[computerResult].id === "rock") {
-    winClassic(event);
+    human.resultMessage = '🎉 YOU WIN! 🎉'
+    gameResultClassic(event)
   }
    setTimeout(displayClassicGame, 2000)
 };
 
 function determiningClassicLossOrTie(event) {
   if (event.target.id === rockImage.id && classicFighters[computerResult].id === "paper") {
-    lossClassic(event);
+    human.resultMessage = 'YOU LOSE!'
+    gameResultClassic(event)
   } else if (event.target.id === paperImage.id && classicFighters[computerResult].id === "scissors") {
-    lossClassic(event);
+    human.resultMessage = 'YOU LOSE!'
+    gameResultClassic(event)
   } else if (event.target.id === scissorsImage.id && classicFighters[computerResult].id === "rock") {
-    lossClassic(event);
+    human.resultMessage = 'YOU LOSE!'
+    gameResultClassic(event)
   } else if (event.target.id === classicFighters[computerResult].id) {
-    tieClassic(event);
+    human.resultMessage = `IT'S A TIE!`
+    gameResultClassic(event)
   }
    setTimeout(displayClassicGame, 2000)
 };
 
-function winClassic(event) {
-    console.log('here win')
-  showFightersPage.innerHTML = 
-    `<h3>🎉 YOU WIN! 🎉</h3> 
+function gameResultClassic(event){
+    showFightersPage.innerHTML = 
+    `<h3>${human.resultMessage}</h3>
     <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
     <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
-
-  human.wins += 1;
-  humanScore.innerHTML = `
-    <h1>HUMAN 😎</h1>
-    <p>Wins:${human.wins}</p>`;
-
-  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage,changeGameButton]);
-};
-
-function tieClassic(event) {
-    console.log('here tie')
-  showFightersPage.innerHTML = `<h3>IT'S A TIE!</h3>
-    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-    <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
-
-  removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage,changeGameButton]);
-};
-
-function lossClassic(event) {
-    console.log('here loss')
-  showFightersPage.innerHTML = 
-    `<h3>YOU LOSE!</h3>
-    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-    <img class="fighter-image" id="${classicFighters[computerResult].id}" src="${classicFighters[computerResult].src}"/>`;
-
-  computer.wins += 1;
-  computerScore.innerHTML = `
-    <h4>COMPUTER 💻</h4>
-    <p>Wins:${computer.wins}`;
-
+  
+  addWin()
   removeHiddenClass([rockImage,paperImage,scissorsImage,iguanaImage,alienImage,changeGameButton]);
 };
 
@@ -187,82 +179,67 @@ function determineDifficultWin(event) {
   computerReturnsFighter(difficultFighters);
   console.log(event.target.id)
   console.log(difficultFighters[computerResult].id)
+
   if ((event.target.id === rockImage2.id && difficultFighters[computerResult].id === "scissors2") || 
     (event.target.id === rockImage2.id && difficultFighters[computerResult].id === "iguana")) {
-    winDifficult(event);
+        human.resultMessage = '🎉 YOU WIN! 🎉'
+    gameResultDifficult(event)
   } else if ((event.target.id === paperImage2.id && difficultFighters[computerResult].id === "rock2") || 
     (event.target.id === paperImage2.id && difficultFighters[computerResult].id === "alien")) {
-    winDifficult(event);
+        human.resultMessage = '🎉 YOU WIN! 🎉'
+    gameResultDifficult(event)
   } else if ((event.target.id === scissorsImage2.id && difficultFighters[computerResult].id === "paper2") || 
     (event.target.id === scissorsImage2.id && difficultFighters[computerResult].id === "iguana")) {
-    winDifficult(event);
+        human.resultMessage = '🎉 YOU WIN! 🎉'
+        gameResultDifficult(event)
   } else if ((event.target.id === iguanaImage.id && difficultFighters[computerResult].id === "paper2") || 
     (event.target.id === iguanaImage.id && difficultFighters[computerResult].id === "alien")) {
-    winDifficult(event);
+        human.resultMessage = '🎉 YOU WIN! 🎉'
+        gameResultDifficult(event)
   } else if ((event.target.id === alienImage.id && difficultFighters[computerResult].id === "scissors2") || 
     (event.target.id === alienImage.id && difficultFighters[computerResult].id === "rock2")) {
-    winDifficult(event);
+        human.resultMessage = '🎉 YOU WIN! 🎉'
+        gameResultDifficult(event)
   }
   setTimeout(displayDifficultGame, 2000);
 };
 
 function determineDifficultLossOrTie(event) {
+ 
   if ((event.target.id === rockImage2.id && difficultFighters[computerResult].id === "alien") || 
     (event.target.id === rockImage2.id && difficultFighters[computerResult].id === "paper2")) {  
-    lossDifficult(event);
+        human.resultMessage = 'YOU LOSE!'
+        gameResultDifficult(event)
   } else if ((event.target.id === paperImage2.id && difficultFighters[computerResult].id === "scissors2") || 
     (event.target.id === paperImage2.id && difficultFighters[computerResult].id ===  "iguana")) {
-    lossDifficult(event);
+        human.resultMessage = 'YOU LOSE!'
+        gameResultDifficult(event)
   } else if ((event.target.id === scissorsImage2.id && difficultFighters[computerResult].id === "alien") || 
     (event.target.id === scissorsImage2.id && difficultFighters[computerResult].id === "rock2")) {
-    lossDifficult(event);
+        human.resultMessage = 'YOU LOSE!'
+        gameResultDifficult(event)
   } else if ((event.target.id === iguanaImage.id && difficultFighters[computerResult].id === "rock2") || 
     (event.target.id === iguanaImage.id && difficultFighters[computerResult].id ==="scissors2")) {
-    lossDifficult(event);
+        human.resultMessage = 'YOU LOSE!'
+        gameResultDifficult(event)
   } else if ( (event.target.id === alienImage.id && difficultFighters[computerResult].id === "paper2") || 
     (event.target.id === alienImage.id && difficultFighters[computerResult].id === 'iguana')) {
-    lossDifficult(event);
+        human.resultMessage = 'YOU LOSE!'
+        gameResultDifficult(event)
   } else if ((event.target.id === difficultFighters[computerResult].id)){
-    tieDifficult(event);
+    human.resultMessage = `IT'S A TIE!`
+         gameResultDifficult(event)
   }
   setTimeout(displayDifficultGame, 2000);
 };
 
-function winDifficult(event) {
-    console.log('win difficult')
-  showFightersPage.innerHTML = 
-    `<h3>🎉 YOU WIN! 🎉</h3> 
+function gameResultDifficult(event){
+    showFightersPage.innerHTML = `<h3>${human.resultMessage}</h3>
     <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
     <img class="fighter-image" id="${difficultFighters[computerResult].id}" src="${difficultFighters[computerResult].src}"/>`;
 
-  human.wins += 1;
-  humanScore.innerHTML = `
-    <h1>HUMAN 😎</h1>
-    <p>Wins:${human.wins}</p>`;
-
+  addWin()
   removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
-};
+}
 
-function tieDifficult(event) {
- console.log('tie difficult')
-  showFightersPage.innerHTML = `<h3>IT'S A TIE!</h3>
-    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-    <img class="fighter-image" id="${difficultFighters[computerResult].id}" src="${difficultFighters[computerResult].src}"/>`;
-
-  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
-};
-
-function lossDifficult(event) {
-  console.log('loss difficult')
-  showFightersPage.innerHTML = `<h3>YOU LOSE!</h3>
-    <img class="fighter-image" id="${event.target.id}" src="${event.target.src}"/>
-    <img class="fighter-image" id="${difficultFighters[computerResult].id}" src="${difficultFighters[computerResult].src}"/>`;
-
-  computer.wins += 1;
-  computerScore.innerHTML = `
-    <h4>COMPUTER 💻</h4>
-    <p>Wins:${computer.wins}`;
-
-  removeHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton]);
-};
 
