@@ -8,7 +8,8 @@ body {
     display: flex;
 }
 
-h1 {
+h1,
+h4 {
     font-size: 20px;
 }
 
@@ -33,17 +34,15 @@ h2{
 .game-option-button {
     display: flex;
     flex-direction: column;  
-    align-items: center;
-    justify-content: center;
     gap: 10px;
 }
 
-.level-button {
+.level-button-1,
+.level-button-2 {
     height: 200px;
     width: 200px;
     border-radius: 10px;
     background-color: #C9FBC2;
-    margin: auto;
     color:#4FC8B1;
     text-align: center;
     border: 0;
@@ -51,22 +50,26 @@ h2{
     font-size: 20px;
 }
 
-.level-button:hover {
+.level-button-1:hover,
+.level-button-2:hover {
     background-color: white;
     color:#4FC8B1;
 } 
 
 .change-game-button {
+    display:flex;
     height: 40px;
-    width: 80px;
+    width: 120px;
     border-radius: 10px;
-    background-color:#4FC8B1 ;
+    background-color:#C9FBC2;
     margin: auto;
-    color:#C9FBC2;
+    color:#4FC8B1;
     text-align: center;
     border: 0;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 17px;
+    justify-content: center;
+    padding-top: 10px;
 }
 
 .change-game-button:hover {
@@ -75,10 +78,10 @@ h2{
 } 
 
 /* ////////////////SCORE BOARD//////////////////////////// */
-#human-score {
+#human-score,
+#computer-score {
     display:flex;
     flex-direction:column;
-    justify-content: flex-start;
     background-color:#C9FBC2;
     width: 160px;
     text-align: center;
@@ -88,40 +91,24 @@ h2{
     border: 0
 }
 
-#computer-score {
-    display: flex;
-    flex-direction: column;
-    background-color: #C9FBC2;
-    width: 160px;
-    text-align: center;
-    height: 200px; 
-    border-radius: 10px;
-    color:#4FC8B1;
-}
-
 h3 {
-    margin: auto;
     font-size: 20px;
     text-align: center;
     padding-top: 10px;
     padding-bottom:50px;
     color:#C9FBC2;
-    margin: auto;
 }
 
-h4 {
-    font-size: 20px 
-}
 /* /////////IMAGES///////// */
+
 .fighter-image {
     height:170px;
 } 
 
 .choose-fighter-image{
 display: flex;
-justify-content: center;
 flex-direction:row;
-text-align:center
+padding-bottom: 25px;
 } 
 
 /* .change-game-button hidden {
