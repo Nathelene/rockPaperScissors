@@ -101,7 +101,9 @@ h3 {
 
 /* /////////IMAGES///////// */
 
-.fighter-image {
+.fighter-image,
+.fighter-image-classic,
+.fighter-image-difficult {
     height:170px;
 } 
 
