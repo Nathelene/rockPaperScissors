@@ -37,7 +37,8 @@ h2{
     gap: 10px;
 }
 
-.level-button {
+.level-button-1,
+.level-button-2 {
     height: 200px;
     width: 200px;
     border-radius: 10px;
@@ -49,7 +50,8 @@ h2{
     font-size: 20px;
 }
 
-.level-button:hover {
+.level-button-1:hover,
+.level-button-2:hover {
     background-color: white;
     color:#4FC8B1;
 } 
@@ -98,8 +100,7 @@ h3 {
 }
 
 /* /////////IMAGES///////// */
-.fighter-image-classic,
-.fighter-image-difficult,
+
 .fighter-image {
     height:170px;
 } 
