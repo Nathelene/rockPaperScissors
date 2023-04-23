@@ -11,12 +11,11 @@ If someone chooses to run this app. Plese follow the steps below:
  - Run `open index.html` to automatically open the site in your browser
 
 ### Preview of App:
-
-![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/125161431/232592215-ca2ed370-6cf9-46c9-910b-83fa8a1cdcd0.gif)
+<img width="1440" alt="Screen Shot 2023-04-23 at 3 36 23 PM" src="https://user-images.githubusercontent.com/121268293/233867644-be4d6dd0-bb6a-4d8d-821f-fe34b02957cb.png">
 
 
 ## Contributors:
-- [Natalie Baker](https://github.com/Nathelene
+- [Natalie Baker](https://github.com/Nathelene)
 
 ### Context:
 I created this app as my final project during mod 1 of the Turing Front End Engineering program. This project took me approximately five days to complete this project and allowed me the oppourtinuty to utilize the skills I had learned over the course of mod 1. 
