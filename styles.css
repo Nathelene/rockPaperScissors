@@ -1,16 +1,11 @@
 html {
     background: #4FC8B1;
-    font-family: 'Bebas Neue', sans-serif
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 /* //////HEADER + MAIN DISPLAY//////// */
 body {
     display: flex;
-}
-
-h1,
-h4 {
-    font-size: 20px;
 }
 
 h2{
@@ -20,13 +15,21 @@ h2{
     color:#C9FBC2;
 }
 
+h3 {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:30px;
+    color:#C9FBC2;
+}
+
 .game {
     display: flex;
     flex-direction: column;  
     align-items: center;
     justify-content: center;
     gap: 20px;
-    width:100%
+    width:100%;
 }
 
 /* //////////////////LEVEL BUTTONS////////////// */
@@ -90,12 +93,9 @@ h2{
     border: 0
 }
 
-h3 {
+h1,
+h4 {
     font-size: 20px;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom:30px;
-    color:#C9FBC2;
 }
 
 /* /////////IMAGES///////// */
@@ -113,7 +113,7 @@ padding-bottom: 25px;
 } 
 
 .hidden {
-    display: none
+    display: none;
 }
 
 
