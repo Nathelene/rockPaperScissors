@@ -11,14 +11,16 @@ If someone chooses to run this app. Plese follow the steps below:
  - Run `open index.html` to automatically open the site in your browser
 
 ### Preview of App:
-<img width="1440" alt="Screen Shot 2023-04-23 at 3 36 23 PM" src="https://user-images.githubusercontent.com/121268293/233867644-be4d6dd0-bb6a-4d8d-821f-fe34b02957cb.png">
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/121268293/234372110-23b22efa-85db-42fe-bda0-47ab0bcf4de6.gif)
 
+
+https://nathelene.github.io/rockPaperScissors/
 
 ## Contributors:
 - [Natalie Baker](https://github.com/Nathelene)
 
 ### Context:
-I created this app as my final project during mod 1 of the Turing Front End Engineering program. This project took me approximately five days to complete this project and allowed me the oppourtinuty to utilize the skills I had learned over the course of mod 1. 
+I created this app as my final project during mod 1 of the Turing Front End Engineering program. This project took me approximately five days to complete and allowed me the oppourtinuty to utilize the skills I had learned over the course of mod 1. 
 
 ### Languages Used:
 - HTML
