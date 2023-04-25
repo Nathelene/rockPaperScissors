@@ -46,7 +46,6 @@ var computer = {
 changeGameButton.addEventListener("click", showHomeView);
 
 showFightersPage.addEventListener("click", function (event) {
-  console.log(event.target.id);
   if (event.target.id === "classic") {
     displayClassicGame(event);
   } else if (event.target.id === "difficult") {
@@ -102,23 +101,24 @@ function showHomeView() {
         scissors > paper & iguana iguana > paper & alien<br/>alien > scissors & rock
       </button>
     </div>`;
+
   removeHiddenClass([rockImage,paperImage,scissorsImage,changeGameButton,rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,]);
-}
+};
 
 function displayClassicGame() {
   showFightersPage.innerHTML = `<h3>Choose Your Fighter!</h3>`;
   showHiddenClass([rockImage, paperImage, scissorsImage, changeGameButton]);
-}
+};
 
 function displayDifficultGame() {
   showFightersPage.innerHTML = `<h3>Choose Your Fighter!</h3>`;
   showHiddenClass([rockImage2,paperImage2,scissorsImage2,alienImage,iguanaImage,changeGameButton,]);
-}
+};
 
 function computerReturnsFighter(array) {
   computerResult = Math.floor(Math.random() * array.length);
   return computerResult;
-}
+};
 
 ////////////Classic Game Functions///////////////
 function determiningClassicResult(event) {
