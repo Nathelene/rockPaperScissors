@@ -16,7 +16,6 @@ h4 {
 h2{
     margin: auto;
     font-size: 60px;
-    text-align: center;
     padding-top: 20px;
     color:#C9FBC2;
 }
@@ -34,7 +33,7 @@ h2{
 .game-option-button {
     display: flex;
     flex-direction: column;  
-    gap: 10px;
+    gap: 15px;
 }
 
 .level-button-1,
@@ -44,10 +43,10 @@ h2{
     border-radius: 10px;
     background-color: #C9FBC2;
     color:#4FC8B1;
-    text-align: center;
     border: 0;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 20px;
+    padding-bottom: 50px;
 }
 
 .level-button-1:hover,
@@ -95,13 +94,15 @@ h3 {
     font-size: 20px;
     text-align: center;
     padding-top: 10px;
-    padding-bottom:50px;
+    padding-bottom:30px;
     color:#C9FBC2;
 }
 
 /* /////////IMAGES///////// */
 
-.fighter-image {
+.fighter-image,
+.fighter-image-classic,
+.fighter-image-difficult {
     height:170px;
 } 
 
@@ -110,10 +111,6 @@ display: flex;
 flex-direction:row;
 padding-bottom: 25px;
 } 
-
-/* .change-game-button hidden {
-    display: none
-} */
 
 .hidden {
     display: none
